@@ -1,5 +1,5 @@
-const Migrations = artifacts.require("../contracts/ProofOfExistence.sol");
+const Poe = artifacts.require("../contracts/ProofOfExistence.sol");
 
 module.exports = function (deployer) {
-  deployer.deploy(Migrations);
+  deployer.deploy(Poe);
 };
