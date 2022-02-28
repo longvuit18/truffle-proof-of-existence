@@ -22,7 +22,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 const fs = require('fs');
 const mnemonic = fs.readFileSync(".secret").toString().trim();
-
+require('dotenv').config();
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -43,10 +43,10 @@ module.exports = {
 
 
     testnet: {
-      provider: () => new HDWalletProvider(mnemonic, `https://data-seed-prebsc-1-s1.binance.org:8545`),
-      network_id: 97,
-      confirmations: 10,
-      timeoutBlocks: 200,
+      provider: () => new HDWalletProvider(mnemonic, process.env.BSC_TESTNET),
+      network_id: process.env.BSC_NETWORK_ID,
+      confirmations: process.env.BSC_CONFIRMATIONS,
+      timeoutBlocks: process.env.BSC_TIMEOUTBLOCKS,
       skipDryRun: true
     },
     // Useful for testing. The `development` name is special - truffle uses it by default
